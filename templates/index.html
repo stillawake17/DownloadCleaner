@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <title>Downloads Folder Cleaner</title>
+</head>
+<body>
+    <h1>Downloads Folder Cleaner</h1>
+
+    <form id="directoryForm">
+        <label for="directoryPath">Directory Path:</label>
+        <input type="text" id="directoryPath" name="directoryPath" required>
+        <button type="submit">Get Extensions</button>
+    </form>
+    
+    <div id="extensionsList"></div>
+    
+    <form id="cleanerForm">
+        <label for="downloadsPath">Downloads Folder Path:</label>
+        <input type="text" id="downloadsPath" name="downloadsPath" required><br><br>
+
+        <div id="categoriesContainer">
+            <!-- Example of a default category for Documents -->
+            <div class="fileTypeGroup">
+                <label>Category Name:</label>
+                <input type="text" name="categoryName" value="Documents" required>
+                <label>Extensions (comma-separated):</label>
+                <input type="text" name="extensions" value=".doc,.docx,.pdf,.txt" required>
+                <label>Target Directory:</label>
+                <input type="text" name="targetDir" value="Documents" required><br><br>
+            </div>
+            <!-- Repeat for other default categories -->
+        </div>
+        
+        <button type="button" id="addCategoryButton">Add New Category</button>
+        <br>
+        <br>
+        <input type="submit" value="Clean Downloads">
+    </form>
+    <div id="feedbackArea"></div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
